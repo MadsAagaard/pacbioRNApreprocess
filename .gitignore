@@ -1,0 +1,6 @@
+work/
+.nextflow/
+.nextflow.log*
+*.html
+*.tsv
+!**/tests/**/*.tsv
