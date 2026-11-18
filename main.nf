@@ -43,7 +43,7 @@ def missingShared  = requiredShared.findAll { !params.containsKey(it) } +
                                       .collect { "condaEnvs.${it}" }
 if (missingShared) {
     error("pacbioRNApreprocess: ${params.lrsSharedDir}/lrsShared.config lacks: ${missingShared.join(', ')}. " +
-          "This pipeline needs lrsShared v3 or later (Kinnex block).")
+          "Add the Kinnex block to that lrsShared version (see README, Config).")
 }
 if (!workflow.stubRun) {
     file(params.kinnexMas8Adapters,   checkIfExists: true)

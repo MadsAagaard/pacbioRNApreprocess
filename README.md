@@ -57,7 +57,7 @@ downstream should key on this file.
 
 `lrsShared.config` -> `conf/rnaPreprocess.config` -> `finalize.config`, as in the other LRS
 pipelines. The lrsShared folder is local to the server and is the only place server paths live;
-this repository holds none. Keys this pipeline needs from lrsShared (v3 or later), checked at launch:
+this repository holds none. Keys this pipeline needs from lrsShared (v2 with the Kinnex block added), checked at launch:
 
 - `kinnexMas8Adapters`, `kinnexBarcodes12plex`: Kinnex kit FASTAs
 - `condaEnvs.skera`, `condaEnvs.lima`: conda envs (also `condaEnvs.somaticSummaryEnv`)

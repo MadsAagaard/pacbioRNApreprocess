@@ -1,11 +1,17 @@
 # Changelog
 
+## 2.0.1 (2026-11-18)
+Deployed: not deployed.
+
+- lrsShared pin v3 -> v2: the Kinnex block is added to v2 (additive, no existing v2 key changed)
+  instead of a new version. Launch-check message updated.
+
 ## 2.0.0 (2026-11-17)
 First version in git. Deployed: not deployed.
 
 - Sample sheet: the run's LabWare metadata sheet replaces the two-column NPN/barcode sheet.
   RNA rows are those with an IsoSeqX barcode (LabWare puts it in the proband slot).
-- Config: lrsShared (v3+) -> conf/rnaPreprocess.config -> finalize.config. Replaces the old
+- Config: lrsShared -> conf/rnaPreprocess.config -> finalize.config. Replaces the old
   single shared config. All server paths (Kinnex FASTAs, skera/lima envs, QC report folder) come
   from lrsShared; none in this repository. Missing keys stop the run at launch.
 - Pool-safe: samples are matched on pool (bcM) + 5' barcode, not barcode alone. Output names carry
