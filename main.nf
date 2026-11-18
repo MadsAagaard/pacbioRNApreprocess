@@ -38,9 +38,7 @@ include { skera_split; lima; set_sample_name; kinnex_run_summary; demux_check } 
 // kinnexQcReportDir may be set to false/null in lrsShared to switch the copy off,
 // but the key must exist, so a shared version without it is caught here.
 def requiredShared = ['kinnexMas8Adapters', 'kinnexBarcodes12plex', 'kinnexQcReportDir']
-def missingShared  = requiredShared.findAll { !params.containsKey(it) } +
-                     ['skera', 'lima'].findAll { !(params.condaEnvs instanceof Map && params.condaEnvs[it]) }
-                                      .collect { "condaEnvs.${it}" }
+def missingShared  = requiredShared.findAll { !params.containsKey(it) }
 if (missingShared) {
     error("pacbioRNApreprocess: ${params.lrsSharedDir}/lrsShared.config lacks: ${missingShared.join(', ')}. " +
           "Add the Kinnex block to that lrsShared version (see README, Config).")

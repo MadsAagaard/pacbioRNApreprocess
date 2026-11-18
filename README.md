@@ -60,7 +60,8 @@ pipelines. The lrsShared folder is local to the server and is the only place ser
 this repository holds none. Keys this pipeline needs from lrsShared (v2 with the Kinnex block added), checked at launch:
 
 - `kinnexMas8Adapters`, `kinnexBarcodes12plex`: Kinnex kit FASTAs
-- `condaEnvs.skera`, `condaEnvs.lima`: conda envs (also `condaEnvs.somaticSummaryEnv`)
+- `condaLocal`, `condaEnvs.somaticSummaryEnv`: conda root and summary env (skera/lima envs are
+  set in `conf/rnaPreprocess.config` from `condaLocal`)
 - `kinnexQcReportDir`: shared folder for the run QC report, copied to
   `<kinnexQcReportDir>/<runfolder name>/` (html) and `.../yaml_json/` (yaml, json); `false` switches the copy off
 

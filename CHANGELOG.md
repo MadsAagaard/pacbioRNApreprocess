@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.2 (2026-11-18)
+Deployed: not deployed.
+
+- condaEnvs.skera/lima back in conf/rnaPreprocess.config (built from the shared root
+  params.condaLocal): pipeline-only envs do not belong in lrsShared. lrsShared needs only the
+  Kinnex keys kinnexMas8Adapters, kinnexBarcodes12plex, kinnexQcReportDir.
+
 ## 2.0.1 (2026-11-18)
 Deployed: not deployed.
 
