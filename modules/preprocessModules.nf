@@ -79,7 +79,8 @@ process lima {
 
 
 // Per-sample uBAM: copy of the lima BAM with every @RG SM set to the NPN.
-// samtools is system-wide (no conda env).
+// samtools is system-wide (no conda env). quickcheck needs -u: an unaligned BAM
+// has no @SQ lines, and plain quickcheck exits 8 ("no targets in header").
 process set_sample_name {
     tag   "${meta.npn}.${meta.bcM}.${meta.barcode5}"
     label 'low'
@@ -97,7 +98,7 @@ process set_sample_name {
     samtools view -H ${bam} \\
         | awk -v sm='${meta.npn}' 'BEGIN{FS=OFS="\\t"} /^@RG/ {for(i=1;i<=NF;i++) if(\$i ~ /^SM:/) \$i="SM:" sm} {print}' \\
         | samtools reheader - ${bam} > ${meta.outName}
-    samtools quickcheck ${meta.outName}
+    samtools quickcheck -u ${meta.outName}
     n=\$(samtools view -H ${meta.outName} \\
         | awk -F'\\t' -v sm='SM:${meta.npn}' '/^@RG/ { ok = 0; for (i = 1; i <= NF; i++) if (\$i == sm) ok = 1; if (!ok) bad++ } END { print bad + 0 }')
     if [ "\$n" -ne 0 ]; then

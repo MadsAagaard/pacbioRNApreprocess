@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.3 (2026-11-18)
+Deployed: not deployed.
+
+- set_sample_name: `samtools quickcheck -u`. Without -u quickcheck exits 8 on every unaligned
+  BAM (no @SQ targets in the header), so every sample failed. Found in the first real run.
+
 ## 2.0.2 (2026-11-18)
 Deployed: not deployed.
 
